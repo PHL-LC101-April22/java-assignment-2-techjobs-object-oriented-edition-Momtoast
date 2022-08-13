@@ -17,7 +17,7 @@ public class Location {
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
     public Location(String aValue) {
         this();
-        this.value = value;
+        this.value = aValue;
     }
 
     // Custom toString, equals, and hashCode methods:
