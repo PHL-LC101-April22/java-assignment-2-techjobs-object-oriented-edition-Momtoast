@@ -53,5 +53,36 @@ public class JobTest {
         assertEquals(newJobString.charAt(0), '\n');
         assertEquals(newJobString.charAt(lastChar), '\n');
     }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job newJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(newJob.toString(), "\nID: 1" +
+                "\nName: Product tester" +
+                "\nEmployer: ACME" +
+                "\nLocation: Desert" +
+                "\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence\n");
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job newJob = new Job("Product tester", new Employer("ACME"), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(newJob.toString(), "\nID: 1" +
+                "\nName: Product tester" +
+                "\nEmployer: ACME" +
+                "\nLocation: Data not available" +
+                "\nPosition Type: Quality control" +
+                "\nCore Competency: Persistence\n");
+    }
+
+    @Test
+    public void testToStringHandlesEmptyJob() {
+        Job newJob = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        assertEquals(newJob.toString(), "OOPS! This job does not seem to exist.");
+    }
 }
 
