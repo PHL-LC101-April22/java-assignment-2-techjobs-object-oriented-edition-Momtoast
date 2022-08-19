@@ -14,7 +14,13 @@ import static org.junit.Assert.*;
 public class JobTest {
 
     @Test
-    public void testSettingJobID() {
+    public void testSettingId() {
+        Job webDeveloper = new Job();
+        assertEquals(webDeveloper.getId(), 1);
+    }
+
+    @Test
+    public void testSettingJobId() {
         Job webDeveloper = new Job();
         Job softwareDesigner = new Job();
         assertNotEquals(webDeveloper.getId(), softwareDesigner.getId());
